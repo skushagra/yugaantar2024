@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}Early Registration{% endblock title %}
+
+{% block content %}
+<style>
+    .cnt {
+        padding-left: 20px;
+        font-family: 'Lexend';
+    }
+
+    .hero {
+        padding-top: 20px;
+        font-size: 22px;
+        font-weight: bold;
+        color: #2c3e50;
+    }
+    .subtitle {
+        font-size: 12px;
+        color: #556372;
+    }
+
+</style>
+    {% include "nav.html" %}
+<div class="cnt">
+    <div class="hero">
+        Early Registration
+    </div>
+    <div class="subtitle">
+        Users who registered ahead of time in the Yugaantar Early Registration.
+    </div>
+</div>
+{% endblock content %}

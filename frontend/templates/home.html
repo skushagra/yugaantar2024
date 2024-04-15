@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+
+{% block title %}Admin Home{% endblock title %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Lexend";
+        }
+        .cnt {
+            /* background-color: red; */
+            padding-left: 20px;
+        }
+        .welcome-message {
+            font-size: 22px;
+            display: block;
+            padding-top: 20px;
+        }
+        .participating-users {
+            background-color: #1a1a1a;
+            width: 18%;
+            height: 15vh;
+            color: #cacaca;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        .number {
+            font-size: 40px;
+            color: #c9ae76;
+        }
+        .text {
+            font-size: 12px;
+        }
+        .info-divs {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+    </style>
+    {% include "nav.html" %}
+
+    <div class="cnt">
+        <div class="welcome-message">
+            Welcome, {{ user.first_name }} {{user.last_name}}
+            <div style="font-size: 12px;">
+                {% if user.is_superuser%}
+                    Full Access
+                {% else %}
+                    Limited Access
+                {% endif %}
+                {% if user.is_staff%}
+                    Developer
+                {% else %}
+                    Organizer
+                {% endif %}
+                Account
+            </div>
+        </div>
+
+        <div class="info-divs">
+            <div class="participating-users">
+                <div class="number">36</div>
+                <div class="text">Registered Events</div>
+            </div>
+            <div class="participating-users">
+                <div class="number">₹ 173298</div>
+                <div class="text">Ticket Sale</div>
+            </div>
+            <div class="participating-users">
+                <div class="number">4530</div>
+                <div class="text">Registered People</div>
+            </div>
+            <div class="participating-users">
+                <div class="number">2300</div>
+                <div class="text">Early Registeration</div>
+            </div>
+            <div class="participating-users">
+                <div class="number">1264</div>
+                <div class="text">Event Participants</div>
+            </div>
+        </div>
+    </div>
+        
+    {% endif %}
+{% endblock %}
