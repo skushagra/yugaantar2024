@@ -14,10 +14,17 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, re_path
+from django.conf import settings
+from base.views import BackendUnAccessibaleView
 
-urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('early/', include('earlyRegister.urls')),
-    path('', include('base.urls'))
-]
+if(not settings.BACKEND_ACCESSIBLE):
+    urlpatterns = [        
+        re_path(r'^.*$', BackendUnAccessibaleView.as_view()),
+    ]
+else: 
+    urlpatterns = [
+        path('admin/', admin.site.urls),
+        path('early/', include('earlyRegister.urls')),
+        path('', include('base.urls'))
+    ]

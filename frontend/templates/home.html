@@ -43,9 +43,17 @@
             display: flex;
             justify-content: space-around;
             margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        @media screen and (max-width: 1000px) {
+            .info-divs {
+                flex-direction: column;
+            }
+            .participating-users {
+                width: 80%;
+            }
         }
     </style>
-    {% include "nav.html" %}
 
     <div class="cnt">
         <div class="welcome-message">
@@ -67,23 +75,23 @@
 
         <div class="info-divs">
             <div class="participating-users">
-                <div class="number">36</div>
+                <div class="number">0</div>
                 <div class="text">Registered Events</div>
             </div>
             <div class="participating-users">
-                <div class="number">₹ 173298</div>
+                <div class="number">₹ 0</div>
                 <div class="text">Ticket Sale</div>
             </div>
             <div class="participating-users">
-                <div class="number">4530</div>
+                <div class="number">0</div>
                 <div class="text">Registered People</div>
             </div>
             <div class="participating-users">
-                <div class="number">2300</div>
+                <div class="number">{{earlyUsers}}</div>
                 <div class="text">Early Registeration</div>
             </div>
             <div class="participating-users">
-                <div class="number">1264</div>
+                <div class="number">0</div>
                 <div class="text">Event Participants</div>
             </div>
         </div>
